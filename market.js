@@ -12,7 +12,7 @@ app.get('/getUsers', function (req, res) {
   });
 });
 
-// Create a server to listen at port 8080
+// Create a server to listen at port 3010
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
