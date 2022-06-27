@@ -4,8 +4,8 @@ var app = express();
 var fs = require('fs'); //require file system object
 const port = 3010;
 
-// Endpoint to Get a list of users
-app.get('/getUsers', function (req, res) {
+// Endpoint to Get a list of products
+app.get('/getProducts', function (req, res) {
   fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
     console.log(data);
     res.end(data); // you can also use res.send()
