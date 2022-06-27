@@ -1,0 +1,14 @@
+{
+  "product1": {
+    "id": "1",
+    "name": "RAM",
+    "cost": 500,
+    "description": "Random Access Memory"
+  },
+  "product2": {
+    "id": "2",
+    "name": "ROM",
+    "cost": 400,
+    "description": "Read Only Memory"
+  }
+}
