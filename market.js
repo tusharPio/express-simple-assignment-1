@@ -24,11 +24,6 @@ app.get('/getProducts', function (req, res) {
   });
 });
 
-app.use(
-  helmet({
-    contentSecurityPolicy: false,
-  })
-);
 
 //POST method
 app.post('/addProduct', function (req, res) {
@@ -38,10 +33,19 @@ app.post('/addProduct', function (req, res) {
     //Step 3: append user variable to list
     data['product3'] = product['product3'];
     console.log(data);
+
+    app.use(
+      helmet({
+        contentSecurityPolicy: false,
+      })
+    );
+    
     res.set('Content-Security-Policy', "default-src 'self'");
     res.end(JSON.stringify(data));
   });
 });
+
+
 
 // Create a server to listen at port 3010
 app.listen(port, () => {
