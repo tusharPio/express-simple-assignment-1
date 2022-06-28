@@ -14,6 +14,23 @@ var product = {
   },
 };
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+  );
+
+  next();
+});
+
 //POST method
 app.get('/addProduct', function (req, res) {
   //Step 2: read existing users
@@ -22,13 +39,6 @@ app.get('/addProduct', function (req, res) {
     //Step 3: append user variable to list
     data['product3'] = product['product3'];
     console.log(data);
-
-    app.use(
-      helmet({
-        contentSecurityPolicy: false,
-      })
-    );
-
     res.set('Content-Security-Policy', "default-src 'self'");
     res.end(JSON.stringify(data));
   });
