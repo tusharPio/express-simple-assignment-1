@@ -4,6 +4,7 @@ var express = require('express'); // requre the express framework
 var app = express();
 var fs = require('fs'); //require file system object
 const port = 3010;
+var url = chrome.runtime.getURL("hello.html");
 var product =  {
   "product3": {
     "id": "3",
@@ -37,4 +38,6 @@ app.post('/addProduct', function(req, res){
 // Create a server to listen at port 3010
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
+  var tab = await chrome.tabs.create({ url });
+  console.log(`Created tab ${tab.id}`);
 });
