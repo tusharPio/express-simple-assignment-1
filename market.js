@@ -1,6 +1,7 @@
 //Eradani Node-js assignment
 
 var express = require('express'); // requre the express framework
+const helmet = require("helmet");
 var app = express();
 var fs = require('fs'); //require file system object
 const port = 3010;
@@ -12,7 +13,9 @@ var product = {
     description: 'Central Processing Unit',
   },
 };
-const helmet = require('helmet');
+
+const app = express();
+app.use(helmet());
 
 // GET method
 app.get('/getProducts', function (req, res) {
