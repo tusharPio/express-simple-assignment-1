@@ -38,7 +38,7 @@ app.post('/addProduct', function (req, res) {
     //Step 3: append user variable to list
     data['product3'] = product['product3'];
     console.log(data);
-    res.end(JSON.stringify(data));
+    res.end();
   });
 });
 
