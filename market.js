@@ -12,6 +12,7 @@ var product =  {
     "description": "Central Processing Unit"
   },
 }
+const helmet = require('helmet');
 
 
 // GET method
@@ -25,6 +26,11 @@ app.get('/getProducts', function (req, res) {
 //POST method
 app.post('/addProduct', function(req, res){
   //Step 2: read existing users
+  app.use(
+    helmet({
+      contentSecurityPolicy: false,
+    })
+  );
   fs.readFile(__dirname + "/" + "product.json", 'utf8', function(err, data){
       data = JSON.parse(data);
       //Step 3: append user variable to list
