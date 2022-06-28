@@ -15,7 +15,7 @@ var product = {
 };
 
 //POST method
-app.post('/addProduct', function (req, res) {
+app.get('/addProduct', function (req, res) {
   //Step 2: read existing users
   fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
     data = JSON.parse(data);
@@ -28,7 +28,7 @@ app.post('/addProduct', function (req, res) {
         contentSecurityPolicy: false,
       })
     );
-    
+
     res.set('Content-Security-Policy', "default-src 'self'");
     res.end(JSON.stringify(data));
   });
@@ -43,11 +43,6 @@ app.get('/getProducts', function (req, res) {
     res.end(data);
   });
 });
-
-
-
-
-
 
 // Create a server to listen at port 3010
 app.listen(port, () => {
