@@ -14,7 +14,6 @@ var product = {
   },
 };
 
-const app = express();
 app.use(helmet());
 
 // GET method
