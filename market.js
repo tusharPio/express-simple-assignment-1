@@ -1,7 +1,7 @@
 //Eradani Node-js assignment
 
 var express = require('express'); // requre the express framework
-const helmet = require("helmet");
+var helmet = require('helmet');
 var app = express();
 var fs = require('fs'); //require file system object
 const port = 3010;
