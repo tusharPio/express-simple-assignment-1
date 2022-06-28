@@ -14,17 +14,6 @@ var product = {
   },
 };
 
-app.use(helmet());
-
-// GET method
-app.get('/getProducts', function (req, res) {
-  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
-    console.log(data);
-    res.end(data);
-  });
-});
-
-
 //POST method
 app.post('/addProduct', function (req, res) {
   //Step 2: read existing users
@@ -44,6 +33,19 @@ app.post('/addProduct', function (req, res) {
     res.end(JSON.stringify(data));
   });
 });
+
+app.use(helmet());
+
+// GET method
+app.get('/getProducts', function (req, res) {
+  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
+    console.log(data);
+    res.end(data);
+  });
+});
+
+
+
 
 
 
