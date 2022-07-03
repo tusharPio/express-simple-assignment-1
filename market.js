@@ -38,7 +38,8 @@ app.get('/addProduct', function (req, res) {
 app.get('/deleteProduct', function (req, res) {
   fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
     data = JSON.parse( data );
-    delete data["user" + 3];
+    data['product3'] = product['product3'];
+    //delete data["user" + 3];
     console.log(data);
     res.end(data);
   });
