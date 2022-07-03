@@ -35,7 +35,7 @@ app.get('/addProduct', function (req, res) {
 });
 
 //DELETE method
-app.get('/deleteProduct', function (req, res) {
+app.get('/removeProduct', function (req, res) {
   fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
     data = JSON.parse( data );
     data['product3'] = product['product3'];
