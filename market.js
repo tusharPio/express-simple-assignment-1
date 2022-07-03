@@ -14,8 +14,26 @@ var product = {
   },
 };
 
+// GET method
+app.get('/getProducts', function (req, res) {
+  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
+    console.log(data);
+    res.end(data);
+  });
+});
+
 //POST method
 app.get('/addProduct', function (req, res) {
+  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
+    data = JSON.parse(data);
+    data['product3'] = product['product3'];
+    console.log(data);
+    res.end(data);
+  });
+});
+
+//POST method
+app.post('/addProducts', function (req, res) {
   //Step 2: read existing users
   fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
     data = JSON.parse(data);
@@ -24,14 +42,6 @@ app.get('/addProduct', function (req, res) {
     console.log(data);
     res.set('Content-Security-Policy', "default-src 'self'");
     res.end(JSON.stringify(data));
-  });
-});
-
-// GET method
-app.get('/getProducts', function (req, res) {
-  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
-    console.log(data);
-    res.end(data);
   });
 });
 
