@@ -11,7 +11,7 @@ var product = {
   product3: {
     id: '3',
     name: 'CPU',
-    cost: '1000',
+    cost: 1000,
     description: 'Central Processing Unit',
   },
 };
@@ -19,17 +19,6 @@ var product = {
 // GET method
 app.get('/getProducts', function (req, res) {
   fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
-    console.log(data);
-    res.end(data);
-  });
-});
-
-//DELETE method
-app.get('/removeProduct', function (req, res) {
-  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
-    data = JSON.parse( data );
-    data['product3'] = product['product3'];
-    //delete data["user" + 3];
     console.log(data);
     res.end(data);
   });
@@ -52,6 +41,16 @@ app.get('/updateProduct/:id', function (req, res) {
     data = JSON.parse( data );
     var product = users["product" + req.params.id]
     data['product3'] = user;
+    console.log(data);
+    res.end(data);
+  });
+});
+
+//DELETE method
+app.get('/removeProduct', function (req, res) {
+  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
+    data = JSON.parse( data );
+    delete data["user" + 3];
     console.log(data);
     res.end(data);
   });
