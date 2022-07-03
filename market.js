@@ -11,7 +11,7 @@ var product = {
   product3: {
     id: '3',
     name: 'CPU',
-    cost: 1000,
+    cost: '1000',
     description: 'Central Processing Unit',
   },
 };
