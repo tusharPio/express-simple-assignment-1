@@ -24,16 +24,6 @@ app.get('/getProducts', function (req, res) {
   });
 });
 
-//POST method
-app.get('/addProduct', function (req, res) {
-  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
-    data = JSON.parse(data);
-    data['product3'] = product['product3'];
-    console.log(data);
-    res.end(data);
-  });
-});
-
 //DELETE method
 app.get('/removeProduct', function (req, res) {
   fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
@@ -44,6 +34,17 @@ app.get('/removeProduct', function (req, res) {
     res.end(data);
   });
 });
+
+//POST method
+app.get('/addProduct', function (req, res) {
+  fs.readFile(__dirname + '/' + 'product.json', 'utf8', function (err, data) {
+    data = JSON.parse(data);
+    data['product3'] = product['product3'];
+    console.log(data);
+    res.end(data);
+  });
+});
+
 
 //PUT method
 app.get('/updateProduct/:id', function (req, res) {
